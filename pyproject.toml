@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "playwright-scraper-template"
+version = "0.1.0"
+description = "Resumable, polite Playwright web-scraping template with retries, dedupe and CSV/JSONL export"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Svyatoslav", email = "svyatoslav.r2000@gmail.com"}]
+keywords = ["scraping", "playwright", "automation", "data-extraction"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = ["playwright>=1.44"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+scrape = "scraper.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["scraper*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
