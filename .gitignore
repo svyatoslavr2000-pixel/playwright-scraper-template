@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Scraper output
+out/
+data/
+*.log
+
+# Local auth sessions - never commit these
+*storage*.json
+auth.json
+.cookies.json
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
